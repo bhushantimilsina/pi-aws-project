@@ -21,10 +21,10 @@ public class WebSocketMessageController {
 	
 	@MessageMapping("/client-outbound-messages")
     @SendTo("/topic/client-inbound-messages")
-    public ClientInboundMessage greeting(final ClientOutboundMessage message) throws Exception {
+    public ClientInboundMessage inboundMessage(final ClientOutboundMessage message) throws Exception {
         log.info("WebSocket Controller - /client-outbound-messages triggered ...");
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
-		toClientMessage.setUser(message.getFrom());
+		toClientMessage.setUser(message.getUser());
 		toClientMessage.setMessage(message.getText());
 		log.info("Sent response: {}", toClientMessage);
         return toClientMessage;

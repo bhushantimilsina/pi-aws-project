@@ -17,11 +17,31 @@ function showMessageOutput(messageOutput) {
 }
 
 function sendMessage() {
-	var from = "defaultUser";
+	var user = "defaultUser";
 	var text = document.getElementById('messageText').value;
 	stompClient.send("/app/client-outbound-messages", {}, JSON.stringify({
-		'from' : from,
+		'user' : user,
 		'text' : text
+	}));
+}
+
+function sendLightOnCommand() {
+	var user = "defaultUser";
+	var text = document.getElementById('messageText').value;
+	stompClient.send("/app/client-outbound-command", {}, JSON.stringify({
+		'device' : 'Light',
+		'status' : 'ON',
+		'user' : user
+	}));
+}
+
+function sendLightOffCommand() {
+	var user = "defaultUser";
+	var text = document.getElementById('messageText').value;
+	stompClient.send("/app/client-outbound-command", {}, JSON.stringify({
+		'device' : 'Light',
+		'status' : 'OFF',
+		'user' : user
 	}));
 }
 

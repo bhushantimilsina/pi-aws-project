@@ -6,19 +6,28 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class ClientOutboundMessage {
-	private String from;
+	private String user;
 	private String text;
-	
-	public String getFrom() {
-		return from;
+	public String getUser() {
+		return user;
 	}
-	public void setFrom(String from) {
-		this.from = from;
+	public void setUser(String user) {
+		this.user = user;
 	}
 	public String getText() {
 		return text;
 	}
 	public void setText(String text) {
 		this.text = text;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ClientOutboundMessage [user=");
+		builder.append(user);
+		builder.append(", text=");
+		builder.append(text);
+		builder.append("]");
+		return builder.toString();
 	}
 }
