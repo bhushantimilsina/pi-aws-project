@@ -1,0 +1,49 @@
+@CHARSET "ISO-8859-1";
+
+textarea.form-control, .form-control[disabled], .form-control[readonly],
+	fieldset[disabled] .form-control {
+	color: #ccc;
+	background-color: black;
+	font-family: consolas;
+	font-size: 12px;
+}
+
+.btn {
+	border-color: #5bc0de;
+}
+
+.btn.active, .btn:active {
+	background-color: #5bc0de;
+	outline: none !important;
+}
+
+.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn,
+	.btn-group .btn-group+.btn-group {
+	margin: 0px !important;
+	outline: none !important;
+}
+
+.btn:focus, .btn:active {
+	outline: none !important;
+}
+
+.btn-group, .btn-group-vertical {
+	display: block;
+}
+
+#button-panel {
+	padding-top: 0px;
+	border-bottom: 1px solid #ddd;
+}
+
+#searchclear {
+	position: absolute;
+	right: 5px;
+	top: 0;
+	bottom: 0;
+	height: 14px;
+	margin: auto;
+	font-size: 14px;
+	cursor: pointer;
+	color: #ccc;
+}
