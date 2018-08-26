@@ -23,8 +23,6 @@ public class WebSocketMessageController {
     @SendTo("/topic/client-inbound-messages")
     public ClientInboundMessage greeting(final ClientOutboundMessage message) throws Exception {
         log.info("WebSocket Controller - /client-outbound-messages triggered ...");
-		Thread.sleep(1000); // simulated delay
-        
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
 		toClientMessage.setUser(message.getFrom());
 		toClientMessage.setMessage(message.getText());

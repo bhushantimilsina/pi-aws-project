@@ -28,4 +28,16 @@ public class ClientInboundMessage {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ClientInboundMessage [timeStamp=");
+		builder.append(timeStamp);
+		builder.append(", user=");
+		builder.append(user);
+		builder.append(", message=");
+		builder.append(message);
+		builder.append("]");
+		return builder.toString();
+	}
 }
