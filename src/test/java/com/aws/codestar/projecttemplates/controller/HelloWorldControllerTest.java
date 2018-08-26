@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * Tests for {@link HelloWorldController}. Modify the tests in order to support your use case as you build your project.
+ * Tests for {@link HomeController}. Modify the tests in order to support your use case as you build your project.
  */
 @DisplayName("Tests for HelloWorldController")
 public class HelloWorldControllerTest {
@@ -17,7 +17,7 @@ public class HelloWorldControllerTest {
     private static final String EXPECTED_SITE_NAME = "home";
     private static final String EXPECTED_VIEW_NAME = "index";
 
-    private HelloWorldController helloWorldController = new HelloWorldController(EXPECTED_SITE_NAME);
+    private HomeController helloWorldController = new HomeController(EXPECTED_SITE_NAME);
 
     /**
      * Initializing variables before we run the tests.
@@ -40,7 +40,7 @@ public class HelloWorldControllerTest {
     }
 
     /**
-     * Basic test to verify the result obtained when calling {@link HelloWorldController#helloWorld} successfully.
+     * Basic test to verify the result obtained when calling {@link HomeController#helloWorld} successfully.
      */
     @Test
     @DisplayName("Basic test for controller")

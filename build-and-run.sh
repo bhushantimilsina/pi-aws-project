@@ -8,7 +8,7 @@ cd /cygdrive/g/git/pi-aws-project
 echo -e "\e[90mRunning Maven: mvn clean package install ...\e[0m"
 
 echo
-mvn clean package install
+mvn clean package -Dmaven.test.skip=true
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 echo -e "\e[91m*** Removing WAR /cygdrive/g/apache-tomcat-9.0.10/webapps/*.war"
 echo
