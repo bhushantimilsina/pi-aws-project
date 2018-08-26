@@ -9,9 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import com.pi4j.io.gpio.*;
+
 import com.aws.codestar.projecttemplates.model.ClientInboundMessage;
 import com.aws.codestar.projecttemplates.model.ClientOutboundCommand;
+import com.pi4j.io.gpio.GpioController;
+import com.pi4j.io.gpio.GpioFactory;
+import com.pi4j.io.gpio.GpioPinDigitalOutput;
+import com.pi4j.io.gpio.PinState;
+import com.pi4j.io.gpio.RaspiPin;
 
 @Controller
 public class LightController {
@@ -25,18 +30,18 @@ public class LightController {
         final GpioController gpio = GpioFactory.getInstance();
         
         // provision broadcom GPIO pin #02 as an output pin and turn on
-        final GpioPinDigitalOutput led1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);
+        final GpioPinDigitalOutput green = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);//GPIO 18
 
         // set shutdown state for this pin
-        led1.setShutdownOptions(true, PinState.LOW);
+        green.setShutdownOptions(true, PinState.LOW);
         
         log.info("Setting LED ON for 1 sec ...");
         // HIGH for 1 sec
         // set second argument to 'true' use a blocking call
-        led1.pulse(1000, true);
+        green.pulse(1000, true);
         
         log.info("Setting LED OFF ...");
-        led1.low();
+        green.low();
 		log.info("WebSocket Controller - /client-outbound-command triggered ...");
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
 		toClientMessage.setUser(command.getUser());
@@ -44,5 +49,4 @@ public class LightController {
 		log.info("Sent response: {}", toClientMessage);
         return toClientMessage;
 	}
-	
 }
