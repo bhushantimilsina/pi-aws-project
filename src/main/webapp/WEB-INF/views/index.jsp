@@ -38,8 +38,8 @@
 			<div class="panel-heading">Light</div>
 			<div class="panel-body">
 				<div class="btn-group btn-group-toggle" data-toggle="buttons">
-					<label class="btn btn-secondary" onclick="sendLightOnCommand()"> <input type="radio" name="options" id="option1" autocomplete="off" checked>ON</label>
-					<label class="btn btn-secondary active" onclick="sendLightOffCommand()"> <input type="radio" name="options" id="option2" autocomplete="off">OFF</label>
+					<label class="btn btn-secondary" onclick="sendLightOnCommand()"><input type="radio" name="options" id="option1" autocomplete="off" checked>ON</label>
+					<label class="btn btn-secondary active" onclick="sendLightOffCommand()"><input type="radio" name="options" id="option2" autocomplete="off">OFF</label>
 				</div>
 			</div>
 		</div>
