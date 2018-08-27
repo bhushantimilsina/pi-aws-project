@@ -82,9 +82,6 @@ public class LightController {
 	        Thread.sleep(1000);
 
 			toClientMessage.setMessage("Light is blinking");
-	        // stop all GPIO activity/threads by shutting down the GPIO controller
-	        // (this method will forcefully shutdown all GPIO monitoring threads and scheduled tasks)
-	        GpioFactory.getInstance().shutdown();
 		}
 
 		log.info("WebSocket Controller - /client-outbound-command triggered ...");
