@@ -21,32 +21,34 @@ import com.pi4j.io.gpio.RaspiPin;
 @Controller
 public class LightController {
 	private static final Logger log = LoggerFactory.getLogger(LightController.class);
-	@Autowired ClientInboundMessage toClientMessage;
-	
+	@Autowired
+	ClientInboundMessage toClientMessage;
+
 	@MessageMapping("/client-outbound-command")
 	@SendTo("/topic/client-inbound-messages")
 	public ClientInboundMessage lightCommand(final ClientOutboundCommand command) {
-		// create GPIO controller 
-        final GpioController gpio = GpioFactory.getInstance();
-        
-        // provision broadcom GPIO pin #02 as an output pin and turn on
-        final GpioPinDigitalOutput green = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);//GPIO 18
+		// create GPIO controller
+		final GpioController gpio = GpioFactory.getInstance();
 
-        // set shutdown state for this pin
-        green.setShutdownOptions(true, PinState.LOW);
-        
-        log.info("Setting LED ON for 1 sec ...");
-        // HIGH for 1 sec
-        // set second argument to 'true' use a blocking call
-        green.pulse(1000, true);
-        
-        log.info("Setting LED OFF ...");
-        green.low();
+		// provision Broadcom GPIO pin #02 as an output pin and turn on
+		final GpioPinDigitalOutput green = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);// GPIO
+
+		// set shutdown state for this pin
+		green.setShutdownOptions(true, PinState.LOW);
+
+		if (command.getStatus().equalsIgnoreCase("ON")) {
+			log.info("Setting LED ON ...");
+			green.high();
+		} else if (command.getStatus().equalsIgnoreCase("OFF")) {
+			log.info("Setting LED OFF ...");
+			green.low();
+		}
+
 		log.info("WebSocket Controller - /client-outbound-command triggered ...");
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
 		toClientMessage.setUser(command.getUser());
 		toClientMessage.setMessage("Light is turned ".concat(command.getStatus()));
 		log.info("Sent response: {}", toClientMessage);
-        return toClientMessage;
+		return toClientMessage;
 	}
 }
