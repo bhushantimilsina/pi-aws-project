@@ -36,6 +36,7 @@ public class LightController {
 		// set shutdown state for this pin
 		green.setShutdownOptions(true, PinState.LOW);
 
+		log.info("Command received from client: {}", command);
 		if (command.getStatus().equalsIgnoreCase("ON")) {
 			log.info("Setting LED ON ...");
 			green.high();
