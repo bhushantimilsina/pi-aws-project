@@ -22,5 +22,5 @@ echo -e "\e[93m*** Copying /home/pi/git/pi-aws-project/target/*.war /opt/apache-
 cp /home/pi/git/pi-aws-project/target/*.war /opt/apache-tomcat-9.0.11/webapps
 
 read -p "Starting Tomcat in five sec ...." -t 3
-catalina.sh run
+sudo /opt/apache-tomcat-9.0.11/bin/catalina.sh run
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
