@@ -7,8 +7,12 @@ echo -e "\e[97mcd /home/pi/git/pi-aws-project\e[0m"
 cd /home/pi/git/pi-aws-project
 echo -e "\e[90mRunning Maven: mvn clean package install ...\e[0m"
 
+sudo -su root
+source /home/pi/.profile
+
 echo
-mvn clean package -Dmaven.test.skip=true
+/opt/apache-maven-3.2.5/bin/mvn clean package -Dmaven.test.skip=true
+
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 echo -e "\e[91m*** Removing WAR /opt/apache-tomcat-9.0.11/webapps/*.war"
 echo
@@ -22,5 +26,9 @@ echo -e "\e[93m*** Copying /home/pi/git/pi-aws-project/target/*.war /opt/apache-
 cp /home/pi/git/pi-aws-project/target/*.war /opt/apache-tomcat-9.0.11/webapps
 
 read -p "Starting Tomcat in five sec ...." -t 3
-sudo /opt/apache-tomcat-9.0.11/bin/catalina.sh run
+#### USER ADDED CODE ### BHUSHAN
+export CLASSPATH="$CLASSPATH:"'/opt/pi4j/lib/*'
+export JAVA_OPTS="$JAVA_OPTS"' -Dpi4j.linking=dynamic'
+
+/opt/apache-tomcat-9.0.11/bin/catalina.sh run
 rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi

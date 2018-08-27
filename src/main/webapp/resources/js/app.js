@@ -17,6 +17,7 @@ function showMessageOutput(messageOutput) {
 }
 
 function sendMessage() {
+	console.log("Send message to server ...")
 	var user = "defaultUser";
 	var text = document.getElementById('messageText').value;
 	stompClient.send("/app/client-outbound-messages", {}, JSON.stringify({
@@ -26,8 +27,8 @@ function sendMessage() {
 }
 
 function sendLightOnCommand() {
+	console.log("Send Light ON Command to server ...");
 	var user = "defaultUser";
-	var text = document.getElementById('messageText').value;
 	stompClient.send("/app/client-outbound-command", {}, JSON.stringify({
 		'device' : 'Light',
 		'status' : 'ON',
@@ -36,8 +37,8 @@ function sendLightOnCommand() {
 }
 
 function sendLightOffCommand() {
+	console.log("Send Light OFF Command to server ...");
 	var user = "defaultUser";
-	var text = document.getElementById('messageText').value;
 	stompClient.send("/app/client-outbound-command", {}, JSON.stringify({
 		'device' : 'Light',
 		'status' : 'OFF',
