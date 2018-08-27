@@ -27,7 +27,7 @@
 			wid="1000" 
 			class="img-responsive"
 			alt="Responsive image"
-			onclick="$('html, body').animate({scrollTop: 600}, 2000);">
+			onclick="sendLightBlinkCommand()">
 		<h1>Rashpberry Pi - Web Controls</h1>
 		<p>IOT Project</p>
 	</div>

@@ -46,6 +46,17 @@ function sendLightOffCommand() {
 	}));
 }
 
+function sendLightBlinkCommand() {
+	console.log("Send Light BLINK Command to server ...");
+	var user = "defaultUser";
+	stompClient.send("/app/client-outbound-command", {}, JSON.stringify({
+		'device' : 'Light',
+		'status' : 'BLINK',
+		'user' : user
+	}));
+	$('html, body').animate({scrollTop: 600}, 2000);
+}
+
 $(document).ready(function() {
     $('#sendButton').prop('disabled',true);
     $('#messageText').keyup(function(){
