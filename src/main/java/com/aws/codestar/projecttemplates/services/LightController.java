@@ -21,6 +21,10 @@ import com.pi4j.io.gpio.RaspiPin;
 @Controller
 public class LightController {
 	private static final Logger log = LoggerFactory.getLogger(LightController.class);
+	
+	// This instance needs to be static since it will be associated 
+	private static GpioPinDigitalOutput green;
+	
 	@Autowired
 	ClientInboundMessage toClientMessage;
 
@@ -29,10 +33,10 @@ public class LightController {
 	public ClientInboundMessage lightCommand(final ClientOutboundCommand command) {
 		// create GPIO controller
 		final GpioController gpio = GpioFactory.getInstance();
-
+		
 		// provision Broadcom GPIO pin #02 as an output pin and turn on
-		final GpioPinDigitalOutput green = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);// GPIO
-
+		green = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01);// GPIO
+		
 		// set shutdown state for this pin
 		green.setShutdownOptions(true, PinState.LOW);
 
