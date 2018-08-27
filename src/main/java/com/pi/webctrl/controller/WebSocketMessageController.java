@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.controller;
+package com.pi.webctrl.controller;
 
 import java.util.Date;
 
@@ -10,8 +10,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
-import com.aws.codestar.projecttemplates.model.ClientInboundMessage;
-import com.aws.codestar.projecttemplates.model.ClientOutboundMessage;
+import com.pi.webctrl.model.ClientInboundMessage;
+import com.pi.webctrl.model.ClientOutboundMessage;
 
 @Controller
 public class WebSocketMessageController {

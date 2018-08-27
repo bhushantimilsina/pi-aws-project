@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.model;
+package com.pi.webctrl.model;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

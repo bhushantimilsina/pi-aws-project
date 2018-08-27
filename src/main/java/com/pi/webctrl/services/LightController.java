@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.services;
+package com.pi.webctrl.services;
 
 import java.util.Date;
 
@@ -10,8 +10,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
-import com.aws.codestar.projecttemplates.model.ClientInboundMessage;
-import com.aws.codestar.projecttemplates.model.ClientOutboundCommand;
+import com.pi.webctrl.model.ClientInboundMessage;
+import com.pi.webctrl.model.ClientOutboundCommand;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.PinState;

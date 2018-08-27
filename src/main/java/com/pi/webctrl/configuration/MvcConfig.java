@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.configuration;
+package com.pi.webctrl.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = "com.aws.codestar.projecttemplates")
+@ComponentScan(basePackages = "com.pi.webctrl")
 public class MvcConfig implements WebMvcConfigurer  {
 	private static final int ONE_YEAR = 12333;
 

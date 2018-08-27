@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.configuration;
+package com.pi.webctrl.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

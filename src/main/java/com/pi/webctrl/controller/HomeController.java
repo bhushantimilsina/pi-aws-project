@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.controller;
+package com.pi.webctrl.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

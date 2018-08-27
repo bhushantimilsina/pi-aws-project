@@ -8,11 +8,15 @@
 		</layout>
 	</appender>
 
-	<logger name="org.springframework" level="warn" additivity="false">
+	<logger name="org.springframework" level="info" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="com.pi.webctrl" level="info" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<root level="error">
+	<root level="info">
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
