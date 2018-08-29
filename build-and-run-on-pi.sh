@@ -1,7 +1,14 @@
 #!/bin/sh
-# Build and Run the project in local instance
-# EXPEPCTED M2_HOME and CATALINA_HOME in SYSTEM PATH
+# Build and Run the project in local instance.
+# 
+# Since Pi4J API require sudo this script must be run as root.
 #
+
+# Check if user has root access
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root!"
+  exit
+fi
 echo
 echo -e "\e[97mcd /home/pi/git/pi-aws-project\e[0m"
 cd /home/pi/git/pi-aws-project
