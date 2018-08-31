@@ -24,7 +24,7 @@ rc=$?; if [ "$rc" -ne 0 ]; then exit $rc; fi
 echo -e "\e[91m*** Removing WAR /opt/apache-tomcat-9.0.11/webapps/*.war"
 echo
 rm /opt/apache-tomcat-9.0.11/webapps/*.war
-ls -
+ls -ltra /opt/apache-tomcat-9.0.11/webapps
 echo -e "\e[91m*** Removing DIRECTORY /opt/apache-tomcat-9.0.11/webapps/pi-aws-project"
 rm -fr /opt/apache-tomcat-9.0.11/webapps/pi-aws-project
 echo
