@@ -27,9 +27,10 @@ public class LightController {
 	@Autowired ClientInboundMessage toClientMessage;
 
 	@MessageMapping("/client-outbound-command")
-	@SendTo("/topic/client-inbound-messages")
+	@SendTo("/topic/client-inbound-message")
 	public ClientInboundMessage lightCommand(final ClientOutboundCommand command) throws InterruptedException {
-		
+		log.info("WebSocket Controller - /client-outbound-command triggered ...");
+
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
 		toClientMessage.setUser(command.getUser());
 		
@@ -47,8 +48,6 @@ public class LightController {
 			green.low();
 			toClientMessage.setMessage("Light is turned OFF");
 		}
-
-		log.info("WebSocket Controller - /client-outbound-command triggered ...");
 
 		log.info("Sent response: {}", toClientMessage);
 		return toClientMessage;

@@ -42,7 +42,7 @@ public class LcdController {
 		// switch on the light
 		lcd.setBacklight(true);
 		
-		lcd.writeln(0, new SimpleDateFormat("MM/dd/yyyy @ HH:mm:ss").format(new Date()), LCDTextAlignment.ALIGN_LEFT);
+		lcd.writeln(0, new SimpleDateFormat("M/d/yy @ HH:mm:ss").format(new Date()), LCDTextAlignment.ALIGN_LEFT);
 		lcd.writeln(1, message.getText(), LCDTextAlignment.ALIGN_LEFT);
 		
 		log.info("Message sent to LCD");
