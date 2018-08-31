@@ -27,13 +27,13 @@ public class LcdController {
 	@Autowired
 	ClientInboundMessage toClientMessage;
 
-	@MessageMapping("/client-outbound-command")
-	@SendTo("/topic/client-inbound-messages")
+	@MessageMapping("/client-outbound-message")
+	@SendTo("/topic/client-inbound-message")
 	public ClientInboundMessage lcdMessage(final ClientOutboundMessage message) throws NumberFormatException, Exception {
 
 		toClientMessage.setTimeStamp(DateFormatUtils.format(new Date(), "YYYY/MM/dd @ HH:mm:ss"));
 		toClientMessage.setUser(message.getUser());
-
+		toClientMessage.setMessage(message.getText());
 		log.info("Sending message to LCD: [{}]", message.getText());
 		
 		// LCD Display with I2C PCF8574 chip

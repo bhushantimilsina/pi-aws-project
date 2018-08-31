@@ -3,7 +3,7 @@ function connect() {
 	stompClient = Stomp.over(socket);
 	stompClient.connect({}, function(frame) {
 		console.log('Connected: ' + frame);
-		stompClient.subscribe('/topic/client-inbound-messages', function(
+		stompClient.subscribe('/topic/client-inbound-message', function(
 				messageOutput) {
 			showMessageOutput(JSON.parse(messageOutput.body));
 		});
@@ -20,7 +20,7 @@ function sendMessage() {
 	console.log("Send message to server ...")
 	var user = "defaultUser";
 	var text = document.getElementById('messageText').value;
-	stompClient.send("/app/client-outbound-messages", {}, JSON.stringify({
+	stompClient.send("/app/client-outbound-message", {}, JSON.stringify({
 		'user' : user,
 		'text' : text
 	}));
