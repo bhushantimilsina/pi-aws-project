@@ -19,5 +19,4 @@ public class ApplicationConfig {
 	public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
-
 }

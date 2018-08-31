@@ -52,7 +52,7 @@
 				</div>
 			</div>
 			<div class="panel-body" id="button-panel">
-				<button id="sendButton" type="button" class="btn btn-info" onclick="sendMessage();" disabled><span class="glyphicon glyphicon-send"></span> Send</button>
+				<button id="sendButton" type="button" class="btn btn-info" onclick="sendMessage()" disabled><span class="glyphicon glyphicon-send"></span> Send</button>
 			</div>
 			<div class="panel-body">
 				<textarea class="form-control" rows="15" id="msg-console" readonly></textarea>
